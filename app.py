@@ -39,7 +39,7 @@ uploaded_file = st.file_uploader("Upload an Excel file", type=["xlsx", "xls", "c
 
 if uploaded_file is not None:
     try:
-        # قراءة الملف وتحليله
+        #
         df = pd.read_excel(uploaded_file)
         profile = ProfileReport(df, explorative=True)
 
