@@ -3,10 +3,7 @@ import pandas as pd
 from ydata_profiling import ProfileReport
 from streamlit_pandas_profiling import st_profile_report
 
-# تصميم الواجهة
 st.set_page_config(page_title="Excel Analyzer", page_icon="📊", layout="wide")
-
-# تنسيق CSS مخصص لجعل الموقع جذابًا
 st.markdown(
     """
     <style>
@@ -30,16 +27,15 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# عنوان الموقع
 st.markdown("<h1>Hello! Upload Your Excel File 📊</h1>", unsafe_allow_html=True)
 
-# رفع ملف Excel
+
 uploaded_file = st.file_uploader("Upload an Excel file", type=["xlsx", "xls", "csv"],
                                  help="Only Excel files are allowed.")
 
 if uploaded_file is not None:
     try:
-        #
+
         df = pd.read_excel(uploaded_file)
         profile = ProfileReport(df, explorative=True)
 
